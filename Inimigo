@@ -1,0 +1,19 @@
+extends KinematicBody2D
+
+var motion = Vector2()
+
+func _ready():
+	pass 
+func _physics_process(delta):
+	var jogador = get_parent().get_node('jogador')
+	
+	position += (jogador.position - position)/25
+
+	look_at(jogador.position)
+	
+	move_and_collide(motion)
+
+
+func _on_Area2D_body_entered(body):
+	if 'bala' in body.name:
+		queue_free()
