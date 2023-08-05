@@ -1,0 +1,10 @@
+extends Node2D
+
+
+
+func _on_Area2D_body_entered(body):
+	if 'jogador' in body.name:
+		body.moeda()
+		queue_free()	
+		
+	pass 
